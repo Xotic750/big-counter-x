@@ -42,7 +42,8 @@
   'use strict';
 
   var defProps = require('define-properties'),
-    defProp = require('define-property-x');
+    defProp = require('define-property-x'),
+    BigCounter;
   /**
    * Increments the counter's value by `1`.
    *
@@ -113,13 +114,13 @@
    * Number(counter); // 0
    * +counter; // 0
    */
-  function BigCounter() {
+  module.exports = BigCounter = function () {
     /* istanbul ignore if */
     if (!(this instanceof BigCounter)) {
       return new BigCounter();
     }
     defProp(this, 'count', [0]);
-  }
+  };
   defProps(BigCounter.prototype, {
     /**
      * Increments the counter's value by `1`.
@@ -179,6 +180,4 @@
     toString: function () { return true; },
     toJSON: function () { return true; }
   });
-  /** @constructor */
-  module.exports = BigCounter;
 }());

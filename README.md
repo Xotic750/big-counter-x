@@ -29,6 +29,7 @@ A big counter module.
 
 * [big-counter-x](#module_big-counter-x)
   * [module.exports](#exp_module_big-counter-x--module.exports) ⏏
+    * [`new module.exports()`](#new_module_big-counter-x--module.exports_new)
     * [`~next()`](#module_big-counter-x--module.exports..next) ⇒ <code>Object</code>
     * [`~inc()`](#module_big-counter-x--module.exports..inc) ⇒ <code>Object</code>
     * [`~get()`](#module_big-counter-x--module.exports..get) ⇒ <code>string</code>
@@ -40,6 +41,43 @@ A big counter module.
 <a name="exp_module_big-counter-x--module.exports"></a>
 ### module.exports ⏏
 **Kind**: Exported class  
+<a name="new_module_big-counter-x--module.exports_new"></a>
+#### `new module.exports()`
+Incremental integer counter. Counts from `0` to very big intergers.
+Javascript's number type allows you to count in integer steps
+from `0` to `9007199254740991`. As of ES5, Strings can contain
+approximately 65000 characters and ES6 is supposed to handle
+the `MAX_SAFE_INTEGER` (though I don't believe any environments supports
+this). This counter represents integer values as strings and can therefore
+count in integer steps from `0` to the maximum string length (that's some
+65000 digits. In the lower range, upto `9007199254740991`, the strings can
+be converted to safe Javascript integers `Number(value)` or `+value`. This
+counter is great for any application that needs a really big count
+represented as a string, (an ID string).
+
+**Example**  
+```js
+var BigCounter = require('big-counter-x');
+var counter = new BigCounter();
+
+counter.get(); // '0'
+counter.next(); // counter object
+counter.get(); // '1'
+
+// Methods are chainable.
+counter.inc().next(); // counter object
+counter.get(); // '3'
+
+counter.reset(); // counter object
+counter.get(); // '0'
+counter.toString(); // '0'
+counter.valueOf(); // '0'
+counter.toJSON(); // '0'
+
+// Values upto `9007199254740991` convert to numbers.
+Number(counter); // 0
++counter; // 0
+```
 <a name="module_big-counter-x--module.exports..next"></a>
 #### `module.exports~next()` ⇒ <code>Object</code>
 Increments the counter's value by `1`.
