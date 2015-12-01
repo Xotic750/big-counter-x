@@ -21,7 +21,7 @@
  * </a>
  *
  * A big counter module.
- * @version 1.0.0
+ * @version 1.0.1
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -41,9 +41,14 @@
 ;(function () {
   'use strict';
 
-  var defProps = require('define-properties'),
+  var pPush = Array.prototype.push,
+    pJoin = Array.prototype.join,
+    ES = require('es-abstract/es6'),
+    defProps = require('define-properties'),
     defProp = require('define-property-x'),
-    BigCounter;
+    $max = Math.max,
+    $floor = Math.floor,
+    BigC;
   /**
    * Increments the counter's value by `1`.
    *
@@ -54,14 +59,14 @@
     /*jshint validthis:true */
     var result = [],
       length = this.count.length,
-      howMany = Math.max(length, 1),
+      howMany = $max(length, 1),
       carry = 0,
       index = 0,
       zi;
     while (index < howMany || carry) {
       zi = carry + (index < length ? this.count[index] : 0) + !index;
-      result.push(zi % 10);
-      carry = Math.floor(zi / 10);
+      ES.Call(pPush, result, [zi % 10]);
+      carry = $floor(zi / 10);
       index += 1;
     }
     this.count = result;
@@ -76,7 +81,7 @@
    */
   function counterToString() {
     /*jshint validthis:true */
-    return this.count.join('');
+    return ES.Call(pJoin, this.count, ['']);
   }
   /**
    * Incremental integer counter. Counts from `0` to very big intergers.
@@ -114,14 +119,14 @@
    * Number(counter); // 0
    * +counter; // 0
    */
-  module.exports = BigCounter = function () {
+  module.exports = BigC = function BigCounter() {
     /* istanbul ignore if */
-    if (!(this instanceof BigCounter)) {
-      return new BigCounter();
+    if (!(this instanceof BigC)) {
+      return new BigC();
     }
     defProp(this, 'count', [0]);
   };
-  defProps(BigCounter.prototype, {
+  defProps(BigC.prototype, {
     /**
      * Increments the counter's value by `1`.
      *
@@ -172,7 +177,7 @@
      */
     reset: function () {
       this.count.length = 0;
-      this.count.push(0);
+      ES.Call(pPush, this.count, [0]);
       return this;
     }
   }, {
