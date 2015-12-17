@@ -3,10 +3,11 @@
 /*jshint bitwise:true, camelcase:true, curly:true, eqeqeq:true, forin:true,
   freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
   nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
-  es3:true, esnext:false, plusplus:true, maxparams:1, maxdepth:1,
-  maxstatements:7, maxcomplexity:2 */
+  es3:true, esnext:false, plusplus:true, maxparams:1, maxdepth:2,
+  maxstatements:11, maxcomplexity:3 */
 
-/*global expect, module, require, jasmine, describe, it, returnExports */
+/*global JSON:true, expect, module, require, jasmine, describe, it,
+  returnExports */
 
 (function () {
   'use strict';
@@ -14,6 +15,12 @@
   var BigCounter;
   if (typeof module === 'object' && module.exports) {
     require('es5-shim');
+    require('es5-shim/es5-sham');
+    if (typeof JSON === 'undefined') {
+      JSON = {};
+    }
+    require('json3').runInContext(null, JSON);
+    require('es6-shim');
     BigCounter = require('../../index.js');
   } else {
     BigCounter = returnExports;
