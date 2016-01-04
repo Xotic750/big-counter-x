@@ -31,7 +31,7 @@
   "dependencies": {
     "es-abstract": "^1.5.0",
     "define-properties": "^1.1.2",
-    "define-property-x": "^1.0.4"
+    "define-property-x": "^1.0.5"
   },
   "devDependencies": {
     "es5-shim": "^4.4.1",

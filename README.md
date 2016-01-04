@@ -39,13 +39,14 @@ es5-shim.js to be able to work properly.
 `es6.shim.js` provides compatibility shims so that legacy JavaScript engines
 behave as closely as possible to ECMAScript 6 (Harmony).
 
-**Version**: 1.0.2  
+**Version**: 1.0.3  
 **Author:** Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
 
 * [big-counter-x](#module_big-counter-x)
     * [module.exports](#exp_module_big-counter-x--module.exports) ⏏
+        * [`new module.exports()`](#new_module_big-counter-x--module.exports_new)
         * [`~next()`](#module_big-counter-x--module.exports..next) ⇒ <code>Object</code>
         * [`~inc()`](#module_big-counter-x--module.exports..inc) ⇒ <code>Object</code>
         * [`~get()`](#module_big-counter-x--module.exports..get) ⇒ <code>string</code>
@@ -56,6 +57,9 @@ behave as closely as possible to ECMAScript 6 (Harmony).
 
 <a name="exp_module_big-counter-x--module.exports"></a>
 ### module.exports ⏏
+**Kind**: Exported class  
+<a name="new_module_big-counter-x--module.exports_new"></a>
+#### `new module.exports()`
 Incremental integer counter. Counts from `0` to very big intergers.
 Javascript's number type allows you to count in integer steps
 from `0` to `9007199254740991`. As of ES5, Strings can contain
@@ -68,7 +72,6 @@ be converted to safe Javascript integers `Number(value)` or `+value`. This
 counter is great for any applications that need a really big count
 represented as a string, (an ID string).
 
-**Kind**: Exported class  
 **Example**  
 ```js
 var BigCounter = require('big-counter-x');
