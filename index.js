@@ -39,7 +39,7 @@
  * `es6.shim.js` provides compatibility shims so that legacy JavaScript engines
  * behave as closely as possible to ECMAScript 6 (Harmony).
  *
- * @version 1.0.8
+ * @version 1.0.9
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -121,9 +121,9 @@
     if (!this || !(this instanceof BigCounter)) {
       return new BigCounter();
     }
-    define.defineProperty(this, 'count', [0]);
+    define.property(this, 'count', [0]);
   }
-  define.defineProperties(BigCounter.prototype, {
+  define.properties(BigCounter.prototype, {
     /**
      * Increments the counter's value by `1`.
      *
