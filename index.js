@@ -39,41 +39,35 @@
  * `es6.shim.js` provides compatibility shims so that legacy JavaScript engines
  * behave as closely as possible to ECMAScript 6 (Harmony).
  *
- * @version 1.0.12
+ * @version 1.1.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
  * @module big-counter-x
  */
 
-/*jslint maxlen:80, es6:false, white:true */
+/* jslint maxlen:80, es6:true, white:true */
 
-/*jshint bitwise:true, camelcase:true, curly:true, eqeqeq:true, forin:true,
-  freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
-  nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
-  es3:true, esnext:false, plusplus:true, maxparams:1, maxdepth:1,
-  maxstatements:12, maxcomplexity:4 */
+/* jshint bitwise:true, camelcase:true, curly:true, eqeqeq:true, forin:true,
+   freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
+   nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
+   es3:false, esnext:true, plusplus:true, maxparams:1, maxdepth:1,
+   maxstatements:3, maxcomplexity:2 */
 
-/*global module */
+/* eslint strict: 1, max-statements: 1 */
 
-;(function () {
+/* global module */
+
+;(function () { // eslint-disable-line no-extra-semi
+
   'use strict';
 
   var pPush = Array.prototype.push;
   var pJoin = Array.prototype.join;
   var define = require('define-properties-x');
+  var stubTrue = require('lodash.stubtrue');
   var $max = Math.max;
   var $floor = Math.floor;
-
-  /**
-   * Predicate that always returns `true` (constant).
-   *
-   * @private
-   * @return {boolean} Returns `true`.
-   */
-  function truePredicate() {
-    return true;
-  }
 
   /**
    * Increments the counter's value by `1`.
@@ -81,8 +75,9 @@
    * @private
    * @return {Object} The counter object.
    */
-  function counterNext() {
-    /*jshint validthis:true */
+  var counterNext = function () {
+    /* jshint validthis:true */
+    /* eslint no-invalid-this: 1 */
     var result = [];
     var length = this.count.length;
     var howMany = $max(length, 1);
@@ -96,7 +91,7 @@
     }
     this.count = result;
     return this;
-  }
+  };
 
   /**
    * Serialise the counter's current value.
@@ -105,10 +100,10 @@
    * @this BigCounter
    * @return {string} A string representation of an integer.
    */
-  function counterToString() {
-    /*jshint validthis:true */
+  var counterToString = function () {
+    /* jshint validthis:true */
     return pJoin.call(this.count, '');
-  }
+  };
 
   /**
    * The BigCounter class.
@@ -116,28 +111,16 @@
    * @private
    * @constructor
    */
-  function BigCounter() {
+  var BigCounter = function () {
     /* istanbul ignore if */
     if (!this || !(this instanceof BigCounter)) {
       return new BigCounter();
     }
     define.property(this, 'count', [0]);
-  }
+    return this;
+  };
+
   define.properties(BigCounter.prototype, {
-    /**
-     * Increments the counter's value by `1`.
-     *
-     * @function
-     * @return {Object} The counter object.
-     */
-    next: counterNext,
-    /**
-     * Increments the counter's value by `1`.
-     *
-     * @function
-     * @return {Object} The counter object.
-     */
-    inc: counterNext,
     /**
      * Gets the counter's current value.
      *
@@ -146,12 +129,38 @@
      */
     get: counterToString,
     /**
+     * Increments the counter's value by `1`.
+     *
+     * @function
+     * @return {Object} The counter object.
+     */
+    inc: counterNext,
+
+    /**
+     * Increments the counter's value by `1`.
+     *
+     * @function
+     * @return {Object} The counter object.
+     */
+    next: counterNext,
+    /**
+     * Resets the counter back to `0`.
+     *
+     * @function
+     * @return {Object} The counter object.
+     */
+    reset: function () {
+      this.count.length = 0;
+      pPush.call(this.count, 0);
+      return this;
+    },
+    /**
      * Gets the counter's current value.
      *
      * @function
      * @return {string} A string representation of an integer.
      */
-    valueOf: counterToString,
+    toJSON: counterToString,
     /**
      * Gets the counter's current value.
      *
@@ -165,22 +174,11 @@
      * @function
      * @return {string} A string representation of an integer.
      */
-    toJSON: counterToString,
-    /**
-     * Resets the counter back to `0`.
-     *
-     * @function
-     * @return {Object} The counter object.
-     */
-    reset: function () {
-      this.count.length = 0;
-      pPush.call(this.count, 0);
-      return this;
-    }
+    valueOf: counterToString
   }, {
-    valueOf: truePredicate,
-    toString: truePredicate,
-    toJSON: truePredicate
+    toJSON: stubTrue,
+    toString: stubTrue,
+    valueOf: stubTrue
   });
 
   /**
