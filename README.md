@@ -1,6 +1,8 @@
 <a name="module_big-counter-x"></a>
 
 ## big-counter-x
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Xotic750/big-counter-x.svg)](https://greenkeeper.io/)
 <a href="https://travis-ci.org/Xotic750/big-counter-x"
 title="Travis status">
 <img src="https://travis-ci.org/Xotic750/big-counter-x.svg?branch=master"
