@@ -1,31 +1,29 @@
-<a name="module_big-counter-x"></a>
-
-## big-counter-x
 <a href="https://travis-ci.org/Xotic750/big-counter-x"
-title="Travis status">
-<img src="https://travis-ci.org/Xotic750/big-counter-x.svg?branch=master"
-alt="Travis status" height="18">
+   title="Travis status">
+<img
+   src="https://travis-ci.org/Xotic750/big-counter-x.svg?branch=master"
+   alt="Travis status" height="18"/>
 </a>
 <a href="https://david-dm.org/Xotic750/big-counter-x"
-title="Dependency status">
+   title="Dependency status">
 <img src="https://david-dm.org/Xotic750/big-counter-x.svg"
-alt="Dependency status" height="18"/>
+   alt="Dependency status" height="18"/>
 </a>
 <a href="https://david-dm.org/Xotic750/big-counter-x#info=devDependencies"
-title="devDependency status">
+   title="devDependency status">
 <img src="https://david-dm.org/Xotic750/big-counter-x/dev-status.svg"
-alt="devDependency status" height="18"/>
+   alt="devDependency status" height="18"/>
 </a>
 <a href="https://badge.fury.io/js/big-counter-x" title="npm version">
 <img src="https://badge.fury.io/js/big-counter-x.svg"
-alt="npm version" height="18">
+   alt="npm version" height="18"/>
 </a>
+<a name="module_big-counter-x"></a>
 
-A big counter module.
+## big-counter-x
+A big counter.
 
-Requires ES3 or above.
-
-**Version**: 1.2.0  
+**Version**: 2.0.0  
 **Author**: Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
@@ -34,7 +32,6 @@ Requires ES3 or above.
     * [module.exports](#exp_module_big-counter-x--module.exports) ⏏
         * [`new module.exports()`](#new_module_big-counter-x--module.exports_new)
         * [`~get()`](#module_big-counter-x--module.exports..get) ⇒ <code>string</code>
-        * [`~inc()`](#module_big-counter-x--module.exports..inc) ⇒ <code>Object</code>
         * [`~next()`](#module_big-counter-x--module.exports..next) ⇒ <code>Object</code>
         * [`~reset()`](#module_big-counter-x--module.exports..reset) ⇒ <code>Object</code>
         * [`~toJSON()`](#module_big-counter-x--module.exports..toJSON) ⇒ <code>string</code>
@@ -70,7 +67,7 @@ counter.next(); // counter object
 counter.get(); // '1'
 
 // Methods are chainable.
-counter.inc().next(); // counter object
+counter.next().next(); // counter object
 counter.get(); // '3'
 
 counter.reset(); // counter object
@@ -88,47 +85,40 @@ Number(counter); // 0
 #### `module.exports~get()` ⇒ <code>string</code>
 Gets the counter's current value.
 
-**Kind**: inner method of <code>[module.exports](#exp_module_big-counter-x--module.exports)</code>  
+**Kind**: inner method of [<code>module.exports</code>](#exp_module_big-counter-x--module.exports)  
 **Returns**: <code>string</code> - A string representation of an integer.  
-<a name="module_big-counter-x--module.exports..inc"></a>
-
-#### `module.exports~inc()` ⇒ <code>Object</code>
-Increments the counter's value by `1`.
-
-**Kind**: inner method of <code>[module.exports](#exp_module_big-counter-x--module.exports)</code>  
-**Returns**: <code>Object</code> - The counter object.  
 <a name="module_big-counter-x--module.exports..next"></a>
 
 #### `module.exports~next()` ⇒ <code>Object</code>
 Increments the counter's value by `1`.
 
-**Kind**: inner method of <code>[module.exports](#exp_module_big-counter-x--module.exports)</code>  
+**Kind**: inner method of [<code>module.exports</code>](#exp_module_big-counter-x--module.exports)  
 **Returns**: <code>Object</code> - The counter object.  
 <a name="module_big-counter-x--module.exports..reset"></a>
 
 #### `module.exports~reset()` ⇒ <code>Object</code>
 Resets the counter back to `0`.
 
-**Kind**: inner method of <code>[module.exports](#exp_module_big-counter-x--module.exports)</code>  
+**Kind**: inner method of [<code>module.exports</code>](#exp_module_big-counter-x--module.exports)  
 **Returns**: <code>Object</code> - The counter object.  
 <a name="module_big-counter-x--module.exports..toJSON"></a>
 
 #### `module.exports~toJSON()` ⇒ <code>string</code>
 Gets the counter's current value.
 
-**Kind**: inner method of <code>[module.exports](#exp_module_big-counter-x--module.exports)</code>  
+**Kind**: inner method of [<code>module.exports</code>](#exp_module_big-counter-x--module.exports)  
 **Returns**: <code>string</code> - A string representation of an integer.  
 <a name="module_big-counter-x--module.exports..toString"></a>
 
 #### `module.exports~toString()` ⇒ <code>string</code>
 Gets the counter's current value.
 
-**Kind**: inner method of <code>[module.exports](#exp_module_big-counter-x--module.exports)</code>  
+**Kind**: inner method of [<code>module.exports</code>](#exp_module_big-counter-x--module.exports)  
 **Returns**: <code>string</code> - A string representation of an integer.  
 <a name="module_big-counter-x--module.exports..valueOf"></a>
 
 #### `module.exports~valueOf()` ⇒ <code>string</code>
 Gets the counter's current value.
 
-**Kind**: inner method of <code>[module.exports](#exp_module_big-counter-x--module.exports)</code>  
+**Kind**: inner method of [<code>module.exports</code>](#exp_module_big-counter-x--module.exports)  
 **Returns**: <code>string</code> - A string representation of an integer.  
