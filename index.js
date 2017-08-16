@@ -1,6 +1,6 @@
 /**
 * @file A big counter.
-* @version 2.0.0
+* @version 2.0.1
 * @author Xotic750 <Xotic750@gmail.com>
 * @copyright  Xotic750
 * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -12,7 +12,7 @@
 var defineProperties = require('object-define-properties-x');
 
 /**
- * Serialise the counter's current value.
+ * Serialise the counter´s current value.
  *
  * @private
  * @this BigCounter
@@ -42,7 +42,7 @@ var BigC = function BigCounter() {
 
 defineProperties(BigC.prototype, {
   /**
-   * Gets the counter's current value.
+   * Gets the counter´s current value.
    *
    * @function
    * @returns {string} A string representation of an integer.
@@ -51,7 +51,7 @@ defineProperties(BigC.prototype, {
     value: counterToString
   },
   /**
-   * Increments the counter's value by `1`.
+   * Increments the counter´s value by `1`.
    *
    * @function
    * @returns {Object} The counter object.
@@ -88,7 +88,7 @@ defineProperties(BigC.prototype, {
     }
   },
   /**
-   * Gets the counter's current value.
+   * Gets the counter´s current value.
    *
    * @function
    * @returns {string} A string representation of an integer.
@@ -97,7 +97,7 @@ defineProperties(BigC.prototype, {
     value: counterToString
   },
   /**
-   * Gets the counter's current value.
+   * Gets the counter´s current value.
    *
    * @function
    * @returns {string} A string representation of an integer.
@@ -106,7 +106,7 @@ defineProperties(BigC.prototype, {
     value: counterToString
   },
   /**
-   * Gets the counter's current value.
+   * Gets the counter´s current value.
    *
    * @function
    * @returns {string} A string representation of an integer.
@@ -118,12 +118,12 @@ defineProperties(BigC.prototype, {
 
 /**
  * Incremental integer counter. Counts from `0` to very big intergers.
- * Javascript's number type allows you to count in integer steps
+ * Javascript´s number type allows you to count in integer steps
  * from `0` to `9007199254740991`. As of ES5, Strings can contain
  * approximately 65000 characters and ES6 is supposed to handle
- * the `MAX_SAFE_INTEGER` (though I don't believe any environments supports
+ * the `MAX_SAFE_INTEGER` (though I don´t believe any environments supports
  * this). This counter represents integer values as strings and can therefore
- * count in integer steps from `0` to the maximum string length (that's some
+ * count in integer steps from `0` to the maximum string length (that´s some
  * 65000 digits). In the lower range, upto `9007199254740991`, the strings can
  * be converted to safe Javascript integers `Number(value)` or `+value`. This
  * counter is great for any applications that need a really big count

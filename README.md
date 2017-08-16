@@ -23,7 +23,7 @@
 ## big-counter-x
 A big counter.
 
-**Version**: 2.0.0  
+**Version**: 2.0.1  
 **Author**: Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
@@ -46,12 +46,12 @@ A big counter.
 
 #### `new module.exports()`
 Incremental integer counter. Counts from `0` to very big intergers.
-Javascript's number type allows you to count in integer steps
+Javascript´s number type allows you to count in integer steps
 from `0` to `9007199254740991`. As of ES5, Strings can contain
 approximately 65000 characters and ES6 is supposed to handle
-the `MAX_SAFE_INTEGER` (though I don't believe any environments supports
+the `MAX_SAFE_INTEGER` (though I don´t believe any environments supports
 this). This counter represents integer values as strings and can therefore
-count in integer steps from `0` to the maximum string length (that's some
+count in integer steps from `0` to the maximum string length (that´s some
 65000 digits). In the lower range, upto `9007199254740991`, the strings can
 be converted to safe Javascript integers `Number(value)` or `+value`. This
 counter is great for any applications that need a really big count
@@ -83,14 +83,14 @@ Number(counter); // 0
 <a name="module_big-counter-x--module.exports..get"></a>
 
 #### `module.exports~get()` ⇒ <code>string</code>
-Gets the counter's current value.
+Gets the counter´s current value.
 
 **Kind**: inner method of [<code>module.exports</code>](#exp_module_big-counter-x--module.exports)  
 **Returns**: <code>string</code> - A string representation of an integer.  
 <a name="module_big-counter-x--module.exports..next"></a>
 
 #### `module.exports~next()` ⇒ <code>Object</code>
-Increments the counter's value by `1`.
+Increments the counter´s value by `1`.
 
 **Kind**: inner method of [<code>module.exports</code>](#exp_module_big-counter-x--module.exports)  
 **Returns**: <code>Object</code> - The counter object.  
@@ -104,21 +104,21 @@ Resets the counter back to `0`.
 <a name="module_big-counter-x--module.exports..toJSON"></a>
 
 #### `module.exports~toJSON()` ⇒ <code>string</code>
-Gets the counter's current value.
+Gets the counter´s current value.
 
 **Kind**: inner method of [<code>module.exports</code>](#exp_module_big-counter-x--module.exports)  
 **Returns**: <code>string</code> - A string representation of an integer.  
 <a name="module_big-counter-x--module.exports..toString"></a>
 
 #### `module.exports~toString()` ⇒ <code>string</code>
-Gets the counter's current value.
+Gets the counter´s current value.
 
 **Kind**: inner method of [<code>module.exports</code>](#exp_module_big-counter-x--module.exports)  
 **Returns**: <code>string</code> - A string representation of an integer.  
 <a name="module_big-counter-x--module.exports..valueOf"></a>
 
 #### `module.exports~valueOf()` ⇒ <code>string</code>
-Gets the counter's current value.
+Gets the counter´s current value.
 
 **Kind**: inner method of [<code>module.exports</code>](#exp_module_big-counter-x--module.exports)  
 **Returns**: <code>string</code> - A string representation of an integer.  
