@@ -1,6 +1,6 @@
 /**
 * @file A big counter.
-* @version 2.0.1
+* @version 3.0.0
 * @author Xotic750 <Xotic750@gmail.com>
 * @copyright  Xotic750
 * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -10,6 +10,13 @@
 'use strict';
 
 var defineProperties = require('object-define-properties-x');
+var isFalsey = require('is-falsey-x');
+var slice = require('array-slice-x');
+var reduceRight = require('array-reduce-right-x');
+
+var reducer = function _reducer(acc, digit) {
+  return acc + digit;
+};
 
 /**
  * Serialise the counter´s current value.
@@ -19,7 +26,7 @@ var defineProperties = require('object-define-properties-x');
  * @return {string} A string representation of an integer.
  */
 var counterToString = function ToString() {
-  return this.count.slice().reverse().join('');
+  return reduceRight(this.count, reducer, '');
 };
 
 /**
@@ -29,8 +36,8 @@ var counterToString = function ToString() {
  * @class
  */
 var BigC = function BigCounter() {
-  if (Boolean(this) === false || (this instanceof BigC) === false) {
-    return new BigC();
+  if (isFalsey(this) || (this instanceof BigC) === false) {
+    throw new TypeError('Constructor BigCounter requires "new"');
   }
 
   defineProperties(this, {
@@ -58,16 +65,16 @@ defineProperties(BigC.prototype, {
    */
   next: {
     value: function next() {
-      var clone = this.count.slice();
+      var clone = slice(this.count);
       this.count.length = 0;
       var length = clone.length;
-      var howMany = Math.max(length, 1);
+      var howMany = length > 0 ? length : 1;
       var carry = 0;
       var index = 0;
       while (index < howMany || carry) {
-        var zi = carry + (index < length ? clone[index] : 0) + (index === 0 ? 1 : 0);
-        this.count.push(zi % 10);
-        carry = Math.floor(zi / 10);
+        var zi = carry + (clone[index] || 0) + (index === 0);
+        this.count[this.count.length] = zi % 10;
+        carry = (zi / 10) >> 0; // floor
         index += 1;
       }
 
@@ -82,8 +89,8 @@ defineProperties(BigC.prototype, {
    */
   reset: {
     value: function reset() {
-      this.count.length = 0;
-      this.count.push(0);
+      this.count.length = 1;
+      this.count[0] = 0;
       return this;
     }
   },

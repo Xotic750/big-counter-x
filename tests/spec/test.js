@@ -15,10 +15,15 @@ if (typeof module === 'object' && module.exports) {
 }
 
 describe('Basic tests', function () {
+  it('Should throw without "new"', function () {
+    expect(function () {
+      // eslint-disable-next-line new-cap
+      BigCounter();
+    }).toThrow();
+  });
+
   it('create an instance', function () {
     expect(new BigCounter()).toEqual(jasmine.any(BigCounter));
-    // eslint-disable-next-line new-cap
-    expect(BigCounter()).toEqual(jasmine.any(BigCounter));
   });
 
   it('getters', function () {
