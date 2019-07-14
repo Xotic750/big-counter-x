@@ -51,7 +51,7 @@
   "dependencies": {
     "array-reduce-right-x": "^2.1.0",
     "array-slice-x": "^3.5.0",
-    "is-falsey-x": "^2.0.4",
+    "is-falsey-x": "^2.0.5",
     "object-define-properties-x": "^4.2.0"
   },
   "devDependencies": {
