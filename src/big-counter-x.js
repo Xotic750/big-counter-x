@@ -1,20 +1,18 @@
 /**
-* @file A big counter.
-* @version 3.1.0
-* @author Xotic750 <Xotic750@gmail.com>
-* @copyright  Xotic750
-* @license {@link <https://opensource.org/licenses/MIT> MIT}
-* @module big-counter-x
-*/
+ * @file A big counter.
+ * @version 3.1.0
+ * @author Xotic750 <Xotic750@gmail.com>
+ * @copyright  Xotic750
+ * @license {@link <https://opensource.org/licenses/MIT> MIT}
+ * @module big-counter-x
+ */
 
-'use strict';
+const defineProperties = require('object-define-properties-x');
+const isFalsey = require('is-falsey-x');
+const slice = require('array-slice-x');
+const reduceRight = require('array-reduce-right-x');
 
-var defineProperties = require('object-define-properties-x');
-var isFalsey = require('is-falsey-x');
-var slice = require('array-slice-x');
-var reduceRight = require('array-reduce-right-x');
-
-var reducer = function _reducer(acc, digit) {
+const reducer = function _reducer(acc, digit) {
   return acc + digit;
 };
 
@@ -23,9 +21,9 @@ var reducer = function _reducer(acc, digit) {
  *
  * @private
  * @this BigCounter
- * @return {string} A string representation of an integer.
+ * @returns {string} A string representation of an integer.
  */
-var counterToString = function ToString() {
+const counterToString = function ToString() {
   return reduceRight(this.count, reducer, '');
 };
 
@@ -36,14 +34,14 @@ var counterToString = function ToString() {
  * @class
  */
 var BigC = function BigCounter() {
-  if (isFalsey(this) || (this instanceof BigC) === false) {
+  if (isFalsey(this) || this instanceof BigC === false) {
     throw new TypeError('Constructor BigCounter requires "new"');
   }
 
   defineProperties(this, {
     count: {
-      value: [0]
-    }
+      value: [0],
+    },
   });
 };
 
@@ -55,44 +53,45 @@ defineProperties(BigC.prototype, {
    * @returns {string} A string representation of an integer.
    */
   get: {
-    value: counterToString
+    value: counterToString,
   },
   /**
    * Increments the counter´s value by `1`.
    *
    * @function
-   * @returns {Object} The counter object.
+   * @returns {object} The counter object.
    */
   next: {
     value: function next() {
-      var clone = slice(this.count);
+      const clone = slice(this.count);
       this.count.length = 0;
-      var length = clone.length;
-      var howMany = length > 0 ? length : 1;
-      var carry = 0;
-      var index = 0;
+      const {length} = clone;
+      const howMany = length > 0 ? length : 1;
+      let carry = 0;
+      let index = 0;
       while (index < howMany || carry) {
-        var zi = carry + (clone[index] || 0) + (index === 0);
+        const zi = carry + (clone[index] || 0) + (index === 0);
         this.count[this.count.length] = zi % 10;
         carry = (zi / 10) >> 0; // floor
         index += 1;
       }
 
       return this;
-    }
+    },
   },
   /**
    * Resets the counter back to `0`.
    *
    * @function
-   * @returns {Object} The counter object.
+   * @returns {object} The counter object.
    */
   reset: {
     value: function reset() {
       this.count.length = 1;
       this.count[0] = 0;
+
       return this;
-    }
+    },
   },
   /**
    * Gets the counter´s current value.
@@ -101,7 +100,7 @@ defineProperties(BigC.prototype, {
    * @returns {string} A string representation of an integer.
    */
   toJSON: {
-    value: counterToString
+    value: counterToString,
   },
   /**
    * Gets the counter´s current value.
@@ -110,7 +109,7 @@ defineProperties(BigC.prototype, {
    * @returns {string} A string representation of an integer.
    */
   toString: {
-    value: counterToString
+    value: counterToString,
   },
   /**
    * Gets the counter´s current value.
@@ -119,8 +118,8 @@ defineProperties(BigC.prototype, {
    * @returns {string} A string representation of an integer.
    */
   valueOf: {
-    value: counterToString
-  }
+    value: counterToString,
+  },
 });
 
 /**
