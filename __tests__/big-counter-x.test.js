@@ -17,17 +17,20 @@ if (typeof module === 'object' && module.exports) {
 
 describe('basic tests', function() {
   it('should throw without "new"', function() {
+    expect.assertions(1);
     expect(function() {
       // eslint-disable-next-line new-cap
       BigCounter();
-    }).toThrow();
+    }).toThrowErrorMatchingSnapshot();
   });
 
   it('create an instance', function() {
+    expect.assertions(1);
     expect(new BigCounter()).toStrictEqual(jasmine.any(BigCounter));
   });
 
   it('getters', function() {
+    expect.assertions(1);
     const counter = new BigCounter();
     expect(counter.get()).toBe('0');
     expect(counter.toString()).toBe('0');
@@ -36,6 +39,7 @@ describe('basic tests', function() {
   });
 
   it('incrementing', function() {
+    expect.assertions(1);
     const counter = new BigCounter();
     expect(counter.get()).toBe('0');
     counter.next();
@@ -45,6 +49,7 @@ describe('basic tests', function() {
   });
 
   it('chaining', function() {
+    expect.assertions(1);
     const counter = new BigCounter();
     expect(counter.get()).toBe('0');
     counter
@@ -55,6 +60,7 @@ describe('basic tests', function() {
   });
 
   it('resetting', function() {
+    expect.assertions(1);
     const counter = new BigCounter();
     expect(counter.get()).toBe('0');
     counter
@@ -68,6 +74,7 @@ describe('basic tests', function() {
   });
 
   it('number coercion', function() {
+    expect.assertions(1);
     const counter = new BigCounter();
     expect(counter.get()).toBe('0');
     counter
@@ -81,6 +88,7 @@ describe('basic tests', function() {
   });
 
   it('string coercion', function() {
+    expect.assertions(1);
     const counter = new BigCounter();
     expect(counter.get()).toBe('0');
     counter
@@ -94,6 +102,7 @@ describe('basic tests', function() {
   });
 
   it('count a few', function() {
+    expect.assertions(1);
     const counter = new BigCounter();
     const howMany = 10000;
     new Array(howMany).fill().forEach(function(u, i) {

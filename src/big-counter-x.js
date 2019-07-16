@@ -7,10 +7,11 @@
  * @module big-counter-x
  */
 
-const defineProperties = require('object-define-properties-x');
-const isFalsey = require('is-falsey-x');
-const slice = require('array-slice-x');
-const reduceRight = require('array-reduce-right-x');
+import defineProperties from 'object-define-properties-x';
+
+import isFalsey from 'is-falsey-x';
+import slice from 'array-slice-x';
+import reduceRight from 'array-reduce-right-x';
 
 const reducer = function _reducer(acc, digit) {
   return acc + digit;
@@ -158,4 +159,4 @@ defineProperties(BigC.prototype, {
  * Number(counter); // 0
  * +counter; // 0
  */
-module.exports = BigC;
+export default BigC;
