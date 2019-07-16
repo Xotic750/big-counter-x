@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic tests should throw without "new" 1`] = `"Constructor BigCounter requires \\"new\\""`;

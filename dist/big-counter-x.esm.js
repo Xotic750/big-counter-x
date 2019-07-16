@@ -1,14 +1,13 @@
 import defineProperties from 'object-define-properties-x';
 import slice from 'array-slice-x';
 import reduceRight from 'array-reduce-right-x';
-
 /** @type {BooleanConstructor} */
-const castBoolean = true.constructor;
 
-const reducer = function _reducer(acc, digit) {
+var castBoolean = true.constructor;
+
+var reducer = function _reducer(acc, digit) {
   return acc + digit;
 };
-
 /**
  * Serialise the counter´s current value.
  *
@@ -16,10 +15,11 @@ const reducer = function _reducer(acc, digit) {
  * @this BigCounter
  * @returns {string} A string representation of an integer.
  */
-const counterToString = function ToString() {
+
+
+var counterToString = function ToString() {
   return reduceRight(this.count, reducer, '');
 };
-
 /**
  * Incremental integer counter. Counts from `0` to very big integers.
  * Javascript´s number type allows you to count in integer steps
@@ -36,6 +36,8 @@ const counterToString = function ToString() {
  * @class
  * @property {Array<number>} count - A representation of a big number.
  */
+
+
 export default function BigCounter() {
   if (castBoolean(this) === false || this instanceof BigCounter === false) {
     throw new TypeError('Constructor BigCounter requires "new"');
@@ -43,11 +45,10 @@ export default function BigCounter() {
 
   defineProperties(this, {
     count: {
-      value: [0],
-    },
+      value: [0]
+    }
   });
 }
-
 defineProperties(BigCounter.prototype, {
   /**
    * Gets the counter´s current value.
@@ -56,8 +57,9 @@ defineProperties(BigCounter.prototype, {
    * @returns {string} A string representation of an integer.
    */
   get: {
-    value: counterToString,
+    value: counterToString
   },
+
   /**
    * Increments the counter´s value by `1`.
    *
@@ -66,23 +68,27 @@ defineProperties(BigCounter.prototype, {
    */
   next: {
     value: function next() {
-      const clone = slice(this.count);
+      var clone = slice(this.count);
       this.count.length = 0;
-      const {length} = clone;
-      const howMany = length > 0 ? length : 1;
-      let carry = 0;
-      let index = 0;
+      var length = clone.length;
+      var howMany = length > 0 ? length : 1;
+      var carry = 0;
+      var index = 0;
+
       while (index < howMany || carry) {
-        const zi = carry + (clone[index] || 0) + (index === 0);
+        var zi = carry + (clone[index] || 0) + (index === 0);
         this.count[this.count.length] = zi % 10;
         /* eslint-disable-next-line no-bitwise */
-        carry = (zi / 10) >> 0; // floor
+
+        carry = zi / 10 >> 0; // floor
+
         index += 1;
       }
 
       return this;
-    },
+    }
   },
+
   /**
    * Resets the counter back to `0`.
    *
@@ -93,10 +99,10 @@ defineProperties(BigCounter.prototype, {
     value: function reset() {
       this.count.length = 1;
       this.count[0] = 0;
-
       return this;
-    },
+    }
   },
+
   /**
    * Gets the counter´s current value.
    *
@@ -104,8 +110,9 @@ defineProperties(BigCounter.prototype, {
    * @returns {string} A string representation of an integer.
    */
   toJSON: {
-    value: counterToString,
+    value: counterToString
   },
+
   /**
    * Gets the counter´s current value.
    *
@@ -113,8 +120,9 @@ defineProperties(BigCounter.prototype, {
    * @returns {string} A string representation of an integer.
    */
   toString: {
-    value: counterToString,
+    value: counterToString
   },
+
   /**
    * Gets the counter´s current value.
    *
@@ -122,6 +130,8 @@ defineProperties(BigCounter.prototype, {
    * @returns {string} A string representation of an integer.
    */
   valueOf: {
-    value: counterToString,
-  },
+    value: counterToString
+  }
 });
+
+//# sourceMappingURL=big-counter-x.esm.js.map

@@ -1,39 +1,21 @@
-let BigCounter;
-
-if (typeof module === 'object' && module.exports) {
-  require('es5-shim');
-  require('es5-shim/es5-sham');
-
-  if (typeof JSON === 'undefined') {
-    JSON = {};
-  }
-
-  require('json3').runInContext(null, JSON);
-  require('es6-shim');
-  BigCounter = require('../../index.js');
-} else {
-  BigCounter = returnExports;
-}
+import BigCounter from '../src/big-counter-x';
 
 describe('basic tests', function() {
   it('should throw without "new"', function() {
     expect.assertions(1);
-    expect.assertions(1);
     expect(function() {
-      // eslint-disable-next-line new-cap
+      /* eslint-disable-next-line babel/new-cap */
       BigCounter();
     }).toThrowErrorMatchingSnapshot();
   });
 
   it('create an instance', function() {
     expect.assertions(1);
-    expect.assertions(1);
-    expect(new BigCounter()).toStrictEqual(jasmine.any(BigCounter));
+    expect(new BigCounter()).toStrictEqual(expect.any(BigCounter));
   });
 
   it('getters', function() {
-    expect.assertions(1);
-    expect.assertions(1);
+    expect.assertions(4);
     const counter = new BigCounter();
     expect(counter.get()).toBe('0');
     expect(counter.toString()).toBe('0');
@@ -42,8 +24,7 @@ describe('basic tests', function() {
   });
 
   it('incrementing', function() {
-    expect.assertions(1);
-    expect.assertions(1);
+    expect.assertions(3);
     const counter = new BigCounter();
     expect(counter.get()).toBe('0');
     counter.next();
@@ -53,8 +34,7 @@ describe('basic tests', function() {
   });
 
   it('chaining', function() {
-    expect.assertions(1);
-    expect.assertions(1);
+    expect.assertions(2);
     const counter = new BigCounter();
     expect(counter.get()).toBe('0');
     counter
@@ -65,8 +45,7 @@ describe('basic tests', function() {
   });
 
   it('resetting', function() {
-    expect.assertions(1);
-    expect.assertions(1);
+    expect.assertions(3);
     const counter = new BigCounter();
     expect(counter.get()).toBe('0');
     counter
@@ -80,8 +59,7 @@ describe('basic tests', function() {
   });
 
   it('number coercion', function() {
-    expect.assertions(1);
-    expect.assertions(1);
+    expect.assertions(5);
     const counter = new BigCounter();
     expect(counter.get()).toBe('0');
     counter
@@ -95,8 +73,7 @@ describe('basic tests', function() {
   });
 
   it('string coercion', function() {
-    expect.assertions(1);
-    expect.assertions(1);
+    expect.assertions(5);
     const counter = new BigCounter();
     expect(counter.get()).toBe('0');
     counter
@@ -110,8 +87,7 @@ describe('basic tests', function() {
   });
 
   it('count a few', function() {
-    expect.assertions(1);
-    expect.assertions(1);
+    expect.assertions(10001);
     const counter = new BigCounter();
     const howMany = 10000;
     new Array(howMany).fill().forEach(function(u, i) {
