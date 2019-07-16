@@ -1,6 +1,6 @@
 {
   "name": "big-counter-x",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A big counter.",
   "homepage": "https://github.com/Xotic750/big-counter-x",
   "author": {
@@ -49,9 +49,9 @@
     "url": "https://github.com/Xotic750/big-counter-x/issues"
   },
   "dependencies": {
-    "array-reduce-right-x": "^3.0.0",
-    "array-slice-x": "^4.0.5",
-    "object-define-properties-x": "^5.0.0"
+    "array-reduce-right-x": "^3.0.1",
+    "array-slice-x": "^4.0.6",
+    "object-define-properties-x": "^5.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
