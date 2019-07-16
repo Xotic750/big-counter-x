@@ -52,7 +52,7 @@
     "array-reduce-right-x": "^3.0.0",
     "array-slice-x": "^4.0.5",
     "is-falsey-x": "^2.0.8",
-    "object-define-properties-x": "^4.2.0"
+    "object-define-properties-x": "^5.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
