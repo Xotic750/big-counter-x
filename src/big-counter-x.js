@@ -36,7 +36,7 @@ const counterToString = function ToString() {
  * @class
  * @property {Array<number>} count - A representation of a big number.
  */
-export default function BigCounter() {
+const BigCounter = function BigCounter() {
   if (castBoolean(this) === false || this instanceof BigCounter === false) {
     throw new TypeError('Constructor BigCounter requires "new"');
   }
@@ -46,7 +46,7 @@ export default function BigCounter() {
       value: [0],
     },
   });
-}
+};
 
 defineProperties(BigCounter.prototype, {
   /**
@@ -125,3 +125,5 @@ defineProperties(BigCounter.prototype, {
     value: counterToString,
   },
 });
+
+export default BigCounter;

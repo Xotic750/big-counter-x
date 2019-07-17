@@ -38,7 +38,7 @@ var counterToString = function ToString() {
  */
 
 
-export default function BigCounter() {
+var BigCounter = function BigCounter() {
   if (castBoolean(this) === false || this instanceof BigCounter === false) {
     throw new TypeError('Constructor BigCounter requires "new"');
   }
@@ -48,7 +48,8 @@ export default function BigCounter() {
       value: [0]
     }
   });
-}
+};
+
 defineProperties(BigCounter.prototype, {
   /**
    * Gets the counter´s current value.
@@ -133,5 +134,6 @@ defineProperties(BigCounter.prototype, {
     value: counterToString
   }
 });
+export default BigCounter;
 
 //# sourceMappingURL=big-counter-x.esm.js.map
