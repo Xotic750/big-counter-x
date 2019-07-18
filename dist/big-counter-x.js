@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-2017",
-  "date": "2019-07-17T19:32:53.136Z",
+  "date": "2019-07-18T00:21:05.125Z",
   "describe": "",
   "description": "A big counter.",
   "file": "big-counter-x.js",
   "hash": "24674b08ea47889a409a",
   "license": "MIT",
-  "version": "4.0.2"
+  "version": "4.0.3"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
