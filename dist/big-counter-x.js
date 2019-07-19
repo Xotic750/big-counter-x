@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-2017",
-  "date": "2019-07-18T22:43:46.482Z",
+  "date": "2019-07-19T22:22:43.155Z",
   "describe": "",
   "description": "A big counter.",
   "file": "big-counter-x.js",
-  "hash": "25a3e6cb33562984fd9a",
+  "hash": "aee2a9953205552f6bbf",
   "license": "MIT",
-  "version": "4.0.4"
+  "version": "4.0.5"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -2206,7 +2206,7 @@ var hop = {}.hasOwnProperty;
  *
  * @param {!object} object - The object to test.
  * @throws {TypeError} If object is null or undefined.
- * @param {string|Symbol} property - The name or Symbol of the property to test.
+ * @param {string|number|Symbol} property - The name or Symbol of the property to test.
  * @returns {boolean} `true` if the property is set on `object`, else `false`.
  */
 
