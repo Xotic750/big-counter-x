@@ -2,11 +2,11 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-2017",
-  "date": "2019-07-27T14:58:52.950Z",
+  "date": "2019-07-27T20:23:11.416Z",
   "describe": "",
   "description": "A big counter.",
   "file": "big-counter-x.js",
-  "hash": "93a66b1ad9289ec93384",
+  "hash": "bbbe49be2b08787ed425",
   "license": "MIT",
   "version": "4.0.13"
 }
@@ -3359,9 +3359,7 @@ var rr = $reduceRight;
 
 
 
-/** @type {BooleanConstructor} */
 
-var big_counter_x_esm_castBoolean = true.constructor;
 
 var reducer = function _reducer(acc, digit) {
   return acc + digit;
@@ -3397,7 +3395,7 @@ var counterToString = function ToString() {
 
 
 var big_counter_x_esm_BigCounter = function BigCounter() {
-  if (big_counter_x_esm_castBoolean(this) === false || this instanceof BigCounter === false) {
+  if (to_boolean_x_esm(this) === false || !(this instanceof BigCounter)) {
     throw new TypeError('Constructor BigCounter requires "new"');
   }
 

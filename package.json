@@ -52,7 +52,8 @@
   "dependencies": {
     "array-reduce-right-x": "^3.0.13",
     "array-slice-x": "^4.0.25",
-    "object-define-properties-x": "^5.0.13"
+    "object-define-properties-x": "^5.0.13",
+    "to-boolean-x": "^2.0.24"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",

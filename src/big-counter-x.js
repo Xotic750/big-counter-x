@@ -1,9 +1,7 @@
 import defineProperties from 'object-define-properties-x';
 import slice from 'array-slice-x';
 import reduceRight from 'array-reduce-right-x';
-
-/** @type {BooleanConstructor} */
-const castBoolean = true.constructor;
+import toBoolean from 'to-boolean-x';
 
 const reducer = function _reducer(acc, digit) {
   return acc + digit;
@@ -37,7 +35,7 @@ const counterToString = function ToString() {
  * @property {Array<number>} count - A representation of a big number.
  */
 const BigCounter = function BigCounter() {
-  if (castBoolean(this) === false || this instanceof BigCounter === false) {
+  if (toBoolean(this) === false || !(this instanceof BigCounter)) {
     throw new TypeError('Constructor BigCounter requires "new"');
   }
 
