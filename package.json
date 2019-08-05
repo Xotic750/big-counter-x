@@ -1,6 +1,6 @@
 {
   "name": "big-counter-x",
-  "version": "4.0.15",
+  "version": "4.0.16",
   "description": "A big counter.",
   "homepage": "https://github.com/Xotic750/big-counter-x",
   "author": {
@@ -51,8 +51,8 @@
   },
   "dependencies": {
     "array-reduce-right-x": "^3.0.15",
-    "array-slice-x": "^4.0.26",
-    "object-define-properties-x": "^5.0.15",
+    "array-slice-x": "^4.0.27",
+    "object-define-properties-x": "^5.0.16",
     "to-boolean-x": "^2.0.25"
   },
   "devDependencies": {
