@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-2017",
-  "date": "2019-08-05T21:23:01.130Z",
+  "date": "2019-08-05T21:40:48.757Z",
   "describe": "",
   "description": "A big counter.",
   "file": "big-counter-x.js",
-  "hash": "6333e0bf7c3c8ea4dbc3",
+  "hash": "f128075c257d04acf532",
   "license": "MIT",
-  "version": "4.0.16"
+  "version": "4.0.17"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -1998,7 +1998,7 @@ var array_for_each_x_esm_test2 = function test2() {
   var _this2 = this;
 
   var spy = '';
-  var res = attempt_x_esm.call(to_boolean_x_esm('abc'), nativeForEach, function (item) {
+  var res = attempt_x_esm.call(to_object_x_esm('abc'), nativeForEach, function (item) {
     array_for_each_x_esm_newArrowCheck(this, _this2);
 
     spy += item;
